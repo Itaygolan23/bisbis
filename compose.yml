@@ -1,0 +1,36 @@
+# services:
+#   db:
+#     image: postgres
+#     restart: always
+#     environment:
+#       POSTGRES_USER: bisbis10
+#       POSTGRES_PASSWORD: bisbis10
+#       POSTGRES_DB: bisbis10
+#   #  volumes:
+#    #   - type: bind
+#    #     source: ./data
+#    #     target: /var/lib/postgresql/data --> in case u need to save data to local storage
+#     ports:
+#       - target: 5432
+#         published: 5432
+#         protocol: tcp
+
+
+version: '3.8'
+
+services:
+  db:
+    image: postgres  # This is an example PostgreSQL image, you can replace it with H2 if there's an official H2 image available on Docker Hub
+    restart: always
+    environment:
+      POSTGRES_USER: bisbis10
+      POSTGRES_PASSWORD: bisbis10
+      POSTGRES_DB: bisbis10
+    ports:
+      - "5432:5432"  # Mapping PostgreSQL container port to host
+
+  h2:
+    image: h2database/h2
+    restart: always
+    ports:
+      - "1521:1521"  # Mapping H2 container port to host
