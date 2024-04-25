@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import java.util.List;
 
 @Entity
 @Table(name = "restaurant") 
@@ -75,7 +74,7 @@ public class Restaurant {
     }
 
     public void setKosher(boolean kosher) {
-        isKosher = kosher;
+        this.isKosher = kosher;
     }
 
     public void setCuisines(String cuisines) {

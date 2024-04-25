@@ -23,18 +23,22 @@ public class RestaurantService {
         this.dishRepository = dishRepository;
     }
 
+    // Get all the Restaurant in the DB
     public List<Restaurant> getRestaurants() {
         return restaurantRepository.findAll();
     }
 
+    // Get all the Restaurant in the DB with a specific cuisune 
     public List<Restaurant> getRestaurantsByCuisine(String cuisine) {
         return restaurantRepository.findByCuisinesContaining(cuisine);
     }
 
+    // Get a Restaurant that have the given ID
     public Optional<Restaurant> getRestaurantbyId(Long restaurantId) {
         return restaurantRepository.findById(restaurantId);
     }
 
+    // Add a Restaurant to the DB
     public Restaurant addRestaurant(Restaurant restaurant) {
         return restaurantRepository.save(restaurant);
     }
@@ -65,7 +69,7 @@ public class RestaurantService {
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         if (optionalRestaurant.isPresent()) {
             Restaurant restaurant = optionalRestaurant.get();
-            // Update the restaurant properties with the provided updatedRestaurant object
+            // Change only the sprcific field mentioned
             if (updatedRestaurant.getName() != null) {
                 restaurant.setName(updatedRestaurant.getName());
             }
@@ -78,8 +82,7 @@ public class RestaurantService {
             if (updatedRestaurant.getCuisines() != null) {
                 restaurant.setCuisines(updatedRestaurant.getCuisines());
             }
-            // Similarly, update other properties as needed
-            // Save and return the updated restaurant
+            
             return restaurantRepository.save(restaurant);
         } else {
             throw new NotFoundException();

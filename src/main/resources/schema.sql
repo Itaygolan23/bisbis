@@ -2,6 +2,8 @@ CREATE TABLE IF NOT EXISTS task (
   description VARCHAR(64) NOT NULL,
   completed   VARCHAR(30) NOT NULL);
 
+
+-- An example of creating table to every API for testing
 CREATE TABLE IF NOT EXISTS RESTAURANT (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255),

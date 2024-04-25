@@ -43,7 +43,6 @@ public class DishService {
         Dishes dish = dishOptional.get();
         dish.setDescription(dishDetails.getDescription());
         dish.setPrice(dishDetails.getPrice());
-        // Update other properties as needed
 
         return dishRepository.save(dish);
     }

@@ -2,6 +2,7 @@ INSERT INTO task ( description, completed) VALUES
   ( 'description1', 'completed'),
   ('description2', 'completed');
 
+-- An Example for inserting to a table
 INSERT INTO RESTAURANT (average_rating, is_kosher, name, cuisines)
 VALUES (4.8, FALSE, 'ITAY', 'Mexican, Indian');
 
